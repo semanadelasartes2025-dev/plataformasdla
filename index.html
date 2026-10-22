@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Semana de las Artes: registro</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#fff;--surface:#f3f3f6;--ink:#050505;--muted:#55555f;--line:#d9d9e2;--cy:#19dccf;--bl:#1fa6f2;--pk:#ff1f9a;--ye:#ffc800;--accent:#ff1f9a;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#050505;--surface:#141418;--ink:#f5f5f7;--muted:#a3a3b0;--line:#2b2b33;--accent:#19dccf;--on:#050505}}
+:root[data-theme="dark"]{--bg:#050505;--surface:#141418;--ink:#f5f5f7;--muted:#a3a3b0;--line:#2b2b33;--accent:#19dccf;--on:#050505}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.45}
+.hero{position:relative;overflow:hidden;min-height:300px;color:#050505;background:radial-gradient(55% 75% at 92% 0,var(--ye) 0 44%,transparent 45%),radial-gradient(34% 60% at 62% 100%,var(--ye) 0 46%,transparent 47%),linear-gradient(105deg,var(--cy) 0 28%,var(--bl) 28% 100%)}
+.swoosh{position:absolute;width:85%;height:46px;left:22%;top:46%;background:var(--pk);border-radius:50px;transform:rotate(-24deg)}
+.hero-in{position:relative;max-width:1100px;margin:0 auto;padding:34px 18px 0}
+h1{font-size:clamp(2.3rem,9vw,4.6rem);line-height:.95;margin:0 0 10px;font-weight:800;letter-spacing:-.03em;max-width:9ch}
+.hero p{margin:0;font-weight:600;max-width:34ch}
+.mount{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:90px;display:block}
+.mount .b{fill:var(--bg)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:2px solid var(--ink)}
+.bar-in{max-width:1100px;margin:0 auto;padding:12px 18px;display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:inherit;font-weight:600;border:2px solid var(--ink);background:transparent;color:var(--ink);padding:6px 14px;border-radius:99px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--on);border-color:var(--accent)}
+.sels{display:flex;gap:8px;flex-wrap:wrap}
+label{display:flex;flex-direction:column;font-size:.8rem;color:var(--muted);gap:2px}
+select,input{font:inherit;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:7px 8px;min-width:120px}
+:focus-visible{outline:3px solid var(--pk);outline-offset:2px}
+.admin{display:none;max-width:1100px;margin:0 auto;padding:10px 18px 0;gap:8px;flex-wrap:wrap;align-items:center}
+.admin.on{display:flex}
+.admin b{margin-right:6px}
+main{max-width:1100px;margin:0 auto;padding:6px 18px 70px}
+.count{color:var(--muted);margin:14px 0}
+h2{font-size:1.4rem;margin:28px 0 10px;display:inline-block;background:var(--ye);color:#050505;padding:2px 12px;border-radius:30px 30px 30px 4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.card{text-align:left;font:inherit;color:inherit;background:var(--surface);border:2px solid var(--line);border-radius:18px 18px 18px 4px;padding:0;overflow:hidden;cursor:pointer}
+.card:hover{border-color:var(--accent)}
+.thumb{height:118px;display:grid;place-items:center;font-size:2.4rem;color:#fff;border-radius:0 0 40% 0}
+.body{padding:10px 12px 12px}
+.body b{display:block;font-weight:600}
+.meta{color:var(--muted);font-size:.85rem}
+.empty{padding:40px 0;color:var(--muted)}
+.modal{position:fixed;inset:0;background:rgba(5,5,5,.75);display:none;align-items:center;justify-content:center;padding:16px;z-index:20}
+.modal.on{display:flex}
+.box{background:var(--bg);border:2px solid var(--ink);border-radius:18px 18px 18px 4px;max-width:760px;width:100%;max-height:100%;overflow:auto;padding:16px}
+.view{aspect-ratio:16/9;width:100%;border:0;border-radius:12px;background:var(--surface);display:grid;place-items:center;color:var(--muted);text-align:center;padding:12px}
+.row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:600;border:2px solid var(--ink);background:transparent;color:var(--ink);padding:7px 14px;border-radius:99px;cursor:pointer;text-decoration:none}
+.btn.p{background:var(--accent);color:var(--on);border-color:var(--accent)}
+.btn.d{border-color:var(--pk);color:var(--pk)}
+.form{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.form label{min-width:0}.form .w{grid-column:1/-1}.form select,.form input{width:100%}
+.lst{margin:0 0 16px}.lst h3{margin:8px 0}
+.tag{display:inline-flex;gap:6px;align-items:center;border:2px solid var(--line);border-radius:99px;padding:3px 6px 3px 12px;margin:0 6px 6px 0}
+.tag button{border:0;background:var(--pk);color:#fff;border-radius:50%;width:22px;height:22px;cursor:pointer;line-height:1}
+.err{color:var(--pk);font-weight:600;min-height:1.2em}
+@media(max-width:520px){.form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="swoosh"></div>
+<div class="hero-in"><h1>Semana de las Artes</h1><p>Fotos, videos y audios del registro. Filtrá por día, disciplina o evento.</p></div>
+<svg class="mount" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><defs><pattern id="h" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#f2f2f2"/><circle cx="2.5" cy="2.5" r="1.1" fill="#222"/></pattern></defs><path fill="url(#h)" d="M0 55 90 30 150 42 240 14 330 46 420 22 520 50 620 26 720 46 820 20 930 48 1040 28 1130 44 1200 34V90H0z"/><path class="b" d="M0 72 200 56 380 76 600 60 800 80 1000 64 1200 76V90H0z"/></svg>
+</header>
+<div class="bar"><div class="bar-in">
+<div class="chips" id="tipos"></div>
+<div class="sels">
+<label>Día<select id="fDia"></select></label>
+<label>Disciplina<select id="fDis"></select></label>
+<label>Evento<select id="fEve"></select></label>
+<label>Agrupar por<select id="grp"><option value="">Sin agrupar</option><option value="dia">Día</option><option value="disciplina">Disciplina</option><option value="evento">Evento</option></select></label>
+</div></div></div>
+<div class="admin" id="admin"><b>Administración</b><button class="btn p" id="bAdd">Agregar contenido</button><button class="btn" id="bLists">Gestionar listas</button><button class="btn" id="bOut">Salir</button></div>
+<main><div class="count" id="count" aria-live="polite"></div><div id="out"></div></main>
+<footer style="max-width:1100px;margin:0 auto;padding:0 18px 40px"><button class="btn" id="bLogin">Acceso administrador</button></footer>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Detalle"><div class="box" id="box"></div></div>
+<script>
+var API="https://script.google.com/macros/s/AKfycbzcsqFheGXWvLJGMc2uEP4SahePBsFRW8CCKUC0ZcQB8jtye6-8NupRkkjgXM8f8CJIQw/exec",TOKEN="",ITEMS=[],LISTS=null,db=null,admin=false,S={tipo:"",dia:"",disciplina:"",evento:""};
+var ICON={foto:"🖼️",video:"🎬",audio:"🎧"},NAME={foto:"Foto",video:"Video",audio:"Audio"};
+var DEFDIAS=["Lunes","Martes","Miércoles","Jueves","Viernes"];
+var COL=["#19dccf","#ff1f9a","#e0a800","#1fa6f2","#8a3ffc","#12a150"];
+var LK={dias:["dia","Días"],disciplinas:["disciplina","Disciplinas"],eventos:["evento","Eventos"]};
+function e(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function base(k){if(LISTS&&LISTS[k])return LISTS[k].slice();return k==="dias"?DEFDIAS.slice():[]}
+function eff(k){var f=LK[k][0],a=base(k);ITEMS.forEach(function(x){if(x[f]&&a.indexOf(x[f])<0)a.push(x[f])});return a}
+function opts(id,list,all){var s=document.getElementById(id),cur=s.value;s.innerHTML='<option value="">'+all+'</option>'+list.map(function(v){return'<option'+(v===cur?' selected':'')+'>'+e(v)+'</option>'}).join('')}
+function selects(){opts("fDia",eff("dias"),"Todos");opts("fDis",eff("disciplinas"),"Todas");opts("fEve",eff("eventos"),"Todos")}
+var tp=document.getElementById("tipos");
+[["","Todo"],["foto","Fotos"],["video","Videos"],["audio","Audios"]].forEach(function(t){
+var b=document.createElement("button");b.className="chip";b.textContent=t[1];b.setAttribute("aria-pressed",t[0]==="");
+b.onclick=function(){S.tipo=t[0];[].forEach.call(tp.children,function(c){c.setAttribute("aria-pressed",c===b)});render()};tp.appendChild(b)});
+["fDia:dia","fDis:disciplina","fEve:evento"].forEach(function(p){var q=p.split(":");document.getElementById(q[0]).onchange=function(ev){S[q[1]]=ev.target.value;render()}});
+document.getElementById("grp").onchange=render;
+function hue(d){var i=eff("disciplinas").indexOf(d);return COL[(i<0?0:i)%COL.length]}
+function card(x){var c=hue(x.disciplina);return'<button class="card" data-id="'+e(x.id)+'"><div class="thumb" style="background:linear-gradient(135deg,'+c+',#050505 140%)">'+ICON[x.tipo]+'</div><div class="body"><b>'+e(x.titulo)+'</b><span class="meta">'+NAME[x.tipo]+' · '+e(x.dia)+' · '+e(x.disciplina)+'</span><br><span class="meta">'+e(x.evento)+'</span></div></button>'}
+function render(){
+var g=document.getElementById("grp").value,o=document.getElementById("out"),dias=eff("dias");
+if(!db){document.getElementById("count").textContent="";o.innerHTML='<div class="empty">'+MSG+'</div>';return}
+var L=ITEMS.filter(function(x){return(!S.tipo||x.tipo===S.tipo)&&(!S.dia||x.dia===S.dia)&&(!S.disciplina||x.disciplina===S.disciplina)&&(!S.evento||x.evento===S.evento)});
+L.sort(function(a,b){return dias.indexOf(a.dia)-dias.indexOf(b.dia)||(a.ts||0)-(b.ts||0)});
+document.getElementById("count").textContent=L.length+(L.length===1?" elemento":" elementos");
+if(!L.length){o.innerHTML='<div class="empty">'+(ITEMS.length?'No hay nada con esa combinación. Probá quitar algún filtro.':(admin?'Todavía no hay contenido. Tocá “Agregar contenido” para empezar.':'Todavía no hay contenido publicado.'))+'</div>';return}
+if(!g){o.innerHTML='<div class="grid">'+L.map(card).join("")+'</div>';return}
+var keys=[];L.forEach(function(x){if(keys.indexOf(x[g])<0)keys.push(x[g])});
+o.innerHTML=keys.map(function(k){return'<h2>'+e(k)+'</h2><div class="grid">'+L.filter(function(x){return x[g]===k}).map(card).join("")+'</div>'}).join("")}
+document.getElementById("out").onclick=function(ev){var c=ev.target.closest(".card");if(c)openItem(c.dataset.id)};
+var M=document.getElementById("modal"),B=document.getElementById("box");
+function show(h){B.innerHTML=h;M.classList.add("on")}
+function close(){M.classList.remove("on");B.innerHTML=""}
+M.onclick=function(ev){if(ev.target===M)close()};
+document.addEventListener("keydown",function(ev){if(ev.key==="Escape")close()});
+function byId(id){return ITEMS.filter(function(x){return x.id===id})[0]}
+function openItem(id){var x=byId(id);if(!x)return;
+var v=x.drive?'<iframe class="view" src="https://drive.google.com/file/d/'+encodeURIComponent(x.drive)+'/preview" allow="autoplay" allowfullscreen></iframe>':'<div class="view">Este elemento todavía no tiene un archivo de Drive vinculado.</div>';
+show('<h3 style="margin:0 0 4px">'+e(x.titulo)+'</h3><div class="meta" style="margin-bottom:10px">'+NAME[x.tipo]+' · '+e(x.dia)+' · '+e(x.disciplina)+' · '+e(x.evento)+'</div>'+v+'<div class="row">'+(x.drive?'<a class="btn p" target="_blank" rel="noopener" href="https://drive.google.com/file/d/'+encodeURIComponent(x.drive)+'/view">Abrir en Drive</a>':'')+(admin?'<button class="btn" id="ed">Editar</button><button class="btn d" id="rm">Eliminar</button>':'')+'<button class="btn" id="cl">Cerrar</button></div>');
+document.getElementById("cl").onclick=close;
+if(admin){document.getElementById("ed").onclick=function(){form(x)};document.getElementById("rm").onclick=function(){if(confirm("¿Eliminar “"+x.titulo+"” de la plataforma? El archivo de Drive no se borra."))call("delete",{id:x.id}).then(function(ok){if(ok)close()})}}}
+function fail(){alert("No se pudo guardar. Revisá tu conexión y tus permisos.")}
+function sel(id,list,cur){return'<select id="'+id+'">'+list.map(function(v){return'<option'+(v===cur?' selected':'')+'>'+e(v)+'</option>'}).join("")+'</select>'}
+function form(x){var n=!x;x=x||{tipo:"foto"};
+var D=eff("dias"),P=eff("disciplinas"),V=eff("eventos");
+if(!D.length||!P.length||!V.length){show('<p>Antes de agregar contenido, cargá al menos un día, una disciplina y un evento en “Gestionar listas”.</p><div class="row"><button class="btn p" id="gl">Gestionar listas</button><button class="btn" id="cl">Cerrar</button></div>');document.getElementById("cl").onclick=close;document.getElementById("gl").onclick=lists;return}
+show('<h3 style="margin:0 0 10px">'+(n?"Agregar contenido":"Editar contenido")+'</h3><div class="form"><label class="w">Título<input id="fT" value="'+e(x.titulo)+'"></label><label class="w">Link de Drive (el archivo debe estar compartido con “cualquier persona con el enlace”)<input id="fL" value="'+(x.drive?"https://drive.google.com/file/d/"+e(x.drive)+"/view":"")+'"></label><label>Tipo'+sel("fTp",["foto","video","audio"],x.tipo)+'</label><label>Día'+sel("fD",D,x.dia)+'</label><label>Disciplina'+sel("fP",P,x.disciplina)+'</label><label>Evento'+sel("fE",V,x.evento)+'</label></div><div class="err" id="er"></div><div class="row"><button class="btn p" id="sv">Guardar</button><button class="btn" id="cl">Cancelar</button></div>');
+document.getElementById("cl").onclick=close;
+document.getElementById("sv").onclick=function(){var t=document.getElementById("fT").value.trim(),l=document.getElementById("fL").value.trim(),m=l.match(/\/d\/([\w-]+)|[?&]id=([\w-]+)/),id=m?(m[1]||m[2]):(/^[\w-]{20,}$/.test(l)?l:"");
+if(!t){document.getElementById("er").textContent="Poné un título.";return}
+if(l&&!id){document.getElementById("er").textContent="No pude leer ese link. Copiá el de “Compartir” en Drive.";return}
+var d={titulo:t,drive:id,tipo:document.getElementById("fTp").value,dia:document.getElementById("fD").value,disciplina:document.getElementById("fP").value,evento:document.getElementById("fE").value};
+var r=n?call("add",{item:d}):(d.id=x.id,call("update",{item:d}));r.then(function(ok){if(ok)close()})}}
+function saveLists(k,a){var o={};Object.keys(LK).forEach(function(q){o[q]=q===k?a:base(q)});return call("setLists",{listas:o})}
+function lists(){
+show('<h3 style="margin:0 0 10px">Gestionar listas</h3>'+Object.keys(LK).map(function(k){return'<div class="lst"><h3>'+LK[k][1]+'</h3><div>'+base(k).map(function(v,i){return'<span class="tag">'+e(v)+'<button data-k="'+k+'" data-i="'+i+'" aria-label="Quitar '+e(v)+'">×</button></span>'}).join("")+'</div><div class="row" style="margin-top:4px"><input id="n_'+k+'" placeholder="Nuevo"><button class="btn p" data-add="'+k+'">Agregar</button></div></div>'}).join("")+'<div class="row"><button class="btn" id="cl">Cerrar</button></div>');
+document.getElementById("cl").onclick=close}
+B.onclick=function(ev){var t=ev.target,k;
+if(t.dataset&&t.dataset.add){k=t.dataset.add;var inp=document.getElementById("n_"+k),v=inp.value.trim(),a=base(k);if(!v||a.indexOf(v)>=0)return;a.push(v);saveLists(k,a).then(lists)}
+else if(t.dataset&&t.dataset.i!==undefined){k=t.dataset.k;var a2=base(k),val=a2[+t.dataset.i],f=LK[k][0],used=ITEMS.filter(function(x){return x[f]===val}).length;
+if(used&&!confirm("“"+val+"” está en uso en "+used+" elemento(s). Se quita de la lista, pero esos elementos conservan el texto hasta que los edites. ¿Quitar?"))return;
+a2.splice(+t.dataset.i,1);saveLists(k,a2).then(lists)}};
+document.getElementById("bAdd").onclick=function(){form()};
+document.getElementById("bLists").onclick=lists;
+var MSG="Cargando…";
+function post(b){return fetch(API,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(b)}).then(function(r){return r.json()})}
+function setAdmin(v){admin=v;document.getElementById("admin").classList.toggle("on",v);document.getElementById("bLogin").style.display=v?"none":""}
+function logout(){TOKEN="";try{sessionStorage.removeItem("tk")}catch(x){}setAdmin(false)}
+function load(){return fetch(API+"?action=list").then(function(r){return r.json()}).then(function(r){ITEMS=r.items||[];LISTS=r.listas&&Object.keys(r.listas).length?r.listas:null;db=true;selects();render()}).catch(function(){if(!db){MSG="No se pudo cargar el contenido. Revisá la conexión y recargá la página.";render()}})}
+function call(action,data){var b=Object.assign({action:action,token:TOKEN},data||{});return post(b).then(function(r){if(r.error==="auth"){logout();close();alert("La sesión venció. Ingresá de nuevo.");return false}if(r.error){fail();return false}return load().then(function(){return true})}).catch(function(){fail();return false})}
+function doLogin(){var er=document.getElementById("er");er.textContent="";post({action:"login",user:document.getElementById("lu").value.trim(),pass:document.getElementById("lp").value}).then(function(r){if(r.token){TOKEN=r.token;try{sessionStorage.setItem("tk",TOKEN)}catch(x){}setAdmin(true);close()}else er.textContent="Usuario o contraseña incorrectos."}).catch(function(){er.textContent="No se pudo conectar."})}
+document.getElementById("bLogin").onclick=function(){show('<h3 style="margin:0 0 10px">Acceso administrador</h3><div class="form"><label class="w">Usuario<input id="lu" autocomplete="username"></label><label class="w">Contraseña<input id="lp" type="password" autocomplete="current-password"></label></div><div class="err" id="er"></div><div class="row"><button class="btn p" id="li">Ingresar</button><button class="btn" id="cl">Cancelar</button></div>');document.getElementById("cl").onclick=close;document.getElementById("li").onclick=doLogin;document.getElementById("lp").onkeydown=function(ev){if(ev.key==="Enter")doLogin()};document.getElementById("lu").focus()};
+document.getElementById("bOut").onclick=logout;
+selects();render();
+if(API.indexOf("PEGAR")===0){MSG="Falta configurar la dirección del servidor (ver la guía de publicación).";render()}
+else{try{TOKEN=sessionStorage.getItem("tk")||""}catch(x){}if(TOKEN)setAdmin(true);load()}
+</script>
+</body>
+</html>
