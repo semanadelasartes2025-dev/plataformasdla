@@ -38,7 +38,9 @@ h2{font-size:1.4rem;margin:28px 0 10px;display:inline-block;background:var(--ye)
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
 .card{text-align:left;font:inherit;color:inherit;background:var(--surface);border:2px solid var(--line);border-radius:18px 18px 18px 4px;padding:0;overflow:hidden;cursor:pointer}
 .card:hover{border-color:var(--accent)}
-.thumb{height:118px;display:grid;place-items:center;font-size:2.4rem;color:#fff;border-radius:0 0 40% 0}
+.thumb{position:relative;overflow:hidden;height:140px;display:grid;place-items:center;font-size:2.4rem;color:#fff;border-radius:0 0 40% 0}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.play{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.65);color:#fff;border-radius:99px;padding:2px 9px;font-size:.9rem}
 .body{padding:10px 12px 12px}
 .body b{display:block;font-weight:600}
 .meta{color:var(--muted);font-size:.85rem}
@@ -96,7 +98,8 @@ b.onclick=function(){S.tipo=t[0];[].forEach.call(tp.children,function(c){c.setAt
 ["fDia:dia","fDis:disciplina","fEve:evento"].forEach(function(p){var q=p.split(":");document.getElementById(q[0]).onchange=function(ev){S[q[1]]=ev.target.value;render()}});
 document.getElementById("grp").onchange=render;
 function hue(d){var i=eff("disciplinas").indexOf(d);return COL[(i<0?0:i)%COL.length]}
-function card(x){var c=hue(x.disciplina);return'<button class="card" data-id="'+e(x.id)+'"><div class="thumb" style="background:linear-gradient(135deg,'+c+',#050505 140%)">'+ICON[x.tipo]+'</div><div class="body"><b>'+e(x.titulo)+'</b><span class="meta">'+NAME[x.tipo]+' · '+e(x.dia)+' · '+e(x.disciplina)+'</span><br><span class="meta">'+e(x.evento)+'</span></div></button>'}
+function prev(x){if(!x.drive||x.tipo==="audio")return"";return'<img loading="lazy" alt="" referrerpolicy="no-referrer" src="https://drive.google.com/thumbnail?id='+encodeURIComponent(x.drive)+'&sz=w480" onerror="this.remove()">'+(x.tipo==="video"?'<span class="play">▶</span>':'')}
+function card(x){var c=hue(x.disciplina);return'<button class="card" data-id="'+e(x.id)+'"><div class="thumb" style="background:linear-gradient(135deg,'+c+',#050505 140%)">'+ICON[x.tipo]+prev(x)+'</div><div class="body"><b>'+e(x.titulo)+'</b><span class="meta">'+NAME[x.tipo]+' · '+e(x.dia)+' · '+e(x.disciplina)+'</span><br><span class="meta">'+e(x.evento)+'</span></div></button>'}
 function render(){
 var g=document.getElementById("grp").value,o=document.getElementById("out"),dias=eff("dias");
 if(!db){document.getElementById("count").textContent="";o.innerHTML='<div class="empty">'+MSG+'</div>';return}
